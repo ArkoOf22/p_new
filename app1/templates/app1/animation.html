@@ -1,0 +1,142 @@
+{% extends 'app1/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="split left">
+	<div class="m" align="center">
+		 <h1>Click on Mic</h1>
+	</div>
+	
+	<br>
+	<form action="" method="post" style="text-align: center;">
+		{% csrf_token %}
+		<button type="button" name="button" class="mic" onclick="record()" style="height: 200px; width: 200px; border-radius: 50%; overflow: hidden;">
+			<img src="{% static 'mic.jpg' %}" height="200px" width="200px" style="object-fit: cover; object-position: center;">
+		  </button>
+				  <br><br>
+				  <input type="text" name="sen" class="mytext" id="speechToText" placeholder="" style="height: 100px; width: 450px; border-radius: 50px;">
+				  <br><br>
+		<input type="submit" name="submit" class="submit"  >
+	  </form>
+	  
+		<br>
+		<table cellspacing="20px">
+			<tr>
+				<td class="td1" >Translated Text:</td>
+				<td class="td">{{ text }}</td>
+			</tr>
+			<tr>
+				<td class="td1">   Key words    :</td>
+				<td class="td">
+				<ul class="td" id="list" align="center">
+  					{% for word in words %}
+    				<li id="{{ i }}" style="margin-right: 8px">{{ word }}</li>
+  					{% endfor %}
+				</ul>
+			</td>
+		</tr>
+	</table>
+</div>
+  
+<div class="split right">
+  <!-- <h1 align="center">Show Animation</h1> -->
+	<div style="text-align:center">	&nbsp&nbsp
+  	<button class="submit" onclick="playPause()" align="center">Start Animation</button>
+  	<!--  LETS USE ONLY PLAY PAUSE BUTTON WITH 720 *420 ,IT FITS THE SCREEN ASHISH
+
+  	<button onclick="makeBig()">Big</button>
+  	<button onclick="makeSmall()">Small</button>
+  	<button onclick="makeNormal()">Normal</button>-->
+	
+  	<video id="videoPlayer" width="600" height="350"  preload="auto" autoplay>
+    	<source src="" type="video/mp4">
+    Your browser does not support HTML5 video.
+  	</video>
+  </div>
+</div>
+<br style="clear:both;">
+
+
+
+
+<script>
+	//webkitSpeechRecognition api for speech to text conversion
+	function record(){
+		var recognition = new webkitSpeechRecognition();
+		recognition.lang='kn-IN';
+
+		recognition.onresult = function(event){
+			console.log(event)
+			document.getElementById('speechToText').value = event.results[0][0].transcript;
+		}
+		recognition.start();
+	 }
+	function play()
+	{
+		var videoSource = new Array();
+		var	videos = document.getElementById("list").getElementsByTagName("li");
+		var j;
+		for(j=0;j<videos.length;j++)
+		{
+			videoSource[j] = "/static/" + videos[j].innerHTML +".mp4";
+		}
+
+		var i = 0; // define i
+		var videoCount = videoSource.length;
+
+		function videoPlay(videoNum)
+		{
+			document.getElementById("list").getElementsByTagName("li")[videoNum].style.color = "#6b7ca4";
+			document.getElementById("list").getElementsByTagName("li")[videoNum].style.fontSize = "xx-large";
+			document.getElementById("videoPlayer").setAttribute("src", videoSource[videoNum]);
+	    	document.getElementById("videoPlayer").load();
+	    	document.getElementById("videoPlayer").play();
+
+		}
+		document.getElementById('videoPlayer').addEventListener('ended', myHandler, false);
+		document.getElementById("list").getElementsByTagName("li")[0].style.color = "#f9d3d3";
+		document.getElementById("list").getElementsByTagName("li")[0].style.fontSize = "xx-large";
+
+		videoPlay(0); // play the video
+
+		function myHandler()
+		{
+	 		document.getElementById("list").getElementsByTagName("li")[i].style.color = "#f9d3d3";
+			document.getElementById("list").getElementsByTagName("li")[i].style.fontSize = "50px";
+			i++;
+	    	if (i == videoCount)
+	    	{
+	       	    document.getElementById("videoPlayer").pause();
+	    	}
+	     	else
+	     	{
+	        	videoPlay(i);
+	    	}
+		}
+	}
+	/* LETS USE ONLY PLAY PAUSE BUTTON WITH 720 *420 ,IT FITS THE SCREEN
+	function makeBig() {
+	    document.getElementById("videoPlayer").width = 560;
+		document.getElementById("videoPlayer").height = 360;
+	}
+
+	function makeSmall() {
+	    document.getElementById("videoPlayer").width = 320;
+		document.getElementById("videoPlayer").height = 180;
+	}
+
+	function makeNormal() {
+	    document.getElementById("videoPlayer").width = 420;
+		document.getElementById("videoPlayer").height =280;
+	}*/
+	function playPause(){
+  		if (document.getElementById("videoPlayer").paused){
+    		play();}
+  		else{
+    		document.getElementById("videoPlayer").pause();}
+		}
+
+	</script>
+
+
+{% endblock %}
