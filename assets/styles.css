@@ -1,0 +1,442 @@
+/* Root definition for theme colors and fonts */
+:root {
+  --primary-color: #0056b3;
+  --primary-dark: #004082;
+  --background-color: #f0f0f0;
+  --text-color: #333;
+  --light-bg: #ffffff;
+  --accent-color: #ff4081;
+}
+
+/* General body and HTML styles */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background: var(--background-color);
+  color: var(--text-color);
+  height: 100%;
+  background-image: url('Ks2sl.jpeg');
+}
+
+/* Header styles */
+header {
+  background: var(--primary-color);
+  color: #fff;
+  padding: 20px 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Navigation links */
+.nav-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: right;
+}
+
+.nav-links li {
+  display: inline;
+  margin-right: 20px;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.nav-links a:hover, .nav-links a:focus {
+  background-color: var(--primary-dark);
+}
+
+/* Main container */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 40px;
+  background: var(--light-bg);
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease-in-out;
+  border-style: dotted;
+  border-color: #0056b3; 
+
+ 
+  
+}
+
+.container:hover {
+  transform: scale(1.05);
+}
+
+/* Header area styles */
+.header-area h1 {
+  font-size: 32px;
+  margin-bottom: 20px;
+  text-align: center;
+  color: var(--primary-color);
+}
+
+/* Form styling */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.mic-button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.mic-icon {
+  width: 60px;
+  height: 60px;
+  transition: transform 0.3s;
+}
+
+.mic-icon:hover {
+  transform: rotate(360deg);
+}
+
+.text-input {
+  flex-grow: 1;
+  padding: 15px 20px;
+  border: 2px solid var(--primary-color);
+  border-radius: 8px;
+  font-size: 16px;
+  transition: border-color 0.3s;
+}
+
+.text-input:focus {
+  border-color: var(--accent-color);
+}
+
+.submit-button, .play-pause-button {
+  padding: 12px 25px;
+  font-size: 16px;
+  margin-top: 20px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.submit-button:hover, .play-pause-button:hover {
+  background-color: var(--primary-dark);
+}
+
+/* Keyword display */
+.keywords-display {
+  width: 100%;
+  padding: 20px;
+  background-color: var(--background-color);
+  margin-top: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border-style: dotted;
+  border-color: #0056b3;
+  
+}
+
+.keyword {
+  display: inline-block;
+  background-color: var(--primary-color);
+  color: #fff;
+  padding: 8px 12px;
+  margin: 5px;
+  border-radius: 5px;
+  font-size: 14px;
+  border-color: #0056b3;
+}
+
+/* Video wrapper styles */
+.video-wrapper {
+  margin-top: 30px;
+  padding: 10px;
+  background-color: #000;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+video {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+/* Footer styles */
+footer {
+  text-align: center;
+  padding: 20px 0;
+  background: var(--primary-color);
+  color: #fff;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .nav-links {
+      text-align: center;
+  }
+
+  .nav-links li {
+      display: block;
+      margin-top: 10px;
+  }
+}
+/* Global Styles */
+:root {
+  --primary-color: #0056b3;
+  --primary-dark: #004082;
+  --background-color: #f0f0f0;
+  --text-color: #333;
+  --light-bg: #ffffff;
+  --accent-color: #ff4081;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background: var(--background-color);
+  color: var(--text-color);
+  background-image: url('Ks2sl.jpeg');
+}
+
+header {
+  background: var(--primary-color);
+  color: #fff;
+  padding: 10px 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  border-color: #0056b3;
+}
+
+.logo img {
+  height: 60px;  /* Adjust based on your preference */
+  opacity: 0.6; /* Set the opacity for the logo */
+  border-radius: 10px;
+}
+
+.nav-links {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  margin: 0;
+  flex-grow: 1;
+  justify-content: space-evenly;
+}
+
+.nav-links li {
+  display: inline;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.nav-links a:hover {
+  background-color: var(--primary-dark);
+}
+
+footer {
+  text-align: center;
+  padding: 20px 0;
+  background: var(--primary-color);
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  .nav-container {
+      flex-direction: column;
+  }
+
+  .nav-links {
+      justify-content: center;
+  }
+
+  .nav-links li {
+      display: block;
+      margin-top: 10px;
+  }
+}
+/* Enhanced global styles and colors */
+:root {
+  --primary-color: #0056b3;
+  --primary-dark: #003974;
+  --background-color: #e6f7ff;
+  --text-color: #333;
+  --light-bg: #ffffff;
+  --accent-color: #ff4081;
+  --hover-effect: rgba(255, 64, 129, 0.2);
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background: var(--background-color);
+  color: var(--text-color);
+  transition: background-color 0.5s;
+  background-image: url('Ks2sl.jpeg');
+}
+
+/* Enhanced navigation styles */
+header {
+  background: var(--primary-color);
+  color: white;
+  padding: 15px 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: padding 0.3s ease-in-out;
+  opacity: 0.9;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  transition: background-color 0.3s, transform 0.3s ease-out;
+}
+
+.nav-links a:hover, .nav-links a:focus {
+  background-color: var(--primary-dark);
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px var(--hover-effect);
+}
+
+/* Animation for interactive elements */
+button:hover, button:focus, .mic-icon:hover {
+  animation: rotate-button 0.7s ease-in-out;
+}
+
+@keyframes rotate-button {
+  from {
+      transform: rotate(0deg);
+  }
+  to {
+      transform: rotate(360deg);
+  }
+}
+
+/* Responsive and engaging media sections */
+video {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Footer enhancements */
+footer {
+  text-align: center;
+  padding: 20px 0;
+  background: var(--primary-color);
+  color: white;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+/* Enhanced global styles and colors with a vibrant and modern palette */
+:root {
+  --primary-color: #3178C6;    /* A vibrant blue for primary actions */
+  --primary-dark: #23599E;     /* A darker shade of blue for hover states */
+  --background-color: #F9FAFB; /* A light grey background for a clean look */
+  --text-color: #073042;       /* A deep blue, good for readability */
+  --light-bg: #FFFFFF;         /* Pure white for cards and containers */
+  --accent-color: #FFB822;     /* A bright yellow for accents and highlights */
+  --hover-effect: rgba(255, 184, 34, 0.2); /* Soft yellow for hover effects */
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background: var(--background-color);
+  color: var(--text-color);
+  transition: background-color 0.5s;
+  background-image: url('Ks2sl.jpeg');
+}
+
+/* Header and navigation styles */
+header {
+  background: var(--primary-color);
+  color: white;
+  padding: 15px 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: padding 0.3s ease-in-out;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  transition: background-color 0.3s, transform 0.3s ease-out;
+}
+
+.nav-links a:hover, .nav-links a:focus {
+  background-color: var(--primary-dark);
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px var(--hover-effect);
+}
+
+/* Enhancements for buttons and interactive elements */
+button:hover, button:focus, .mic-icon:hover {
+  animation: rotate-button 0.7s ease-in-out;
+}
+
+@keyframes rotate-button {
+  from {
+      transform: rotate(0deg);
+  }
+  to {
+      transform: rotate(360deg);
+  }
+}
+
+/* Responsive and engaging media sections */
+video {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Footer enhancements */
+footer {
+  text-align: center;
+  padding: 20px 0;
+  background: var(--primary-color);
+  color: white;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}

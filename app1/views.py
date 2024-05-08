@@ -33,7 +33,7 @@ def animation_view(request):
 
         #initialize the client
 
-        os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = './assets/j1.json'
+        os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = '/Users/arkodeep/Downloads/p_new/assets/j1.json'
 
         # os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = './assets/api_key_new.json'
         translate_client = translate.Client()
@@ -70,7 +70,7 @@ def animation_view(request):
         lr = WordNetLemmatizer()
         filtered_text = []
         for w, p in zip(words, tagged):
-            if w not in stop_words:
+            if w not in stop_words and w.isalnum():
                 if p[1] == 'VBG' or p[1] == 'VBD' or p[1] == 'VBZ' or p[1] == 'VBN' or p[1] == 'NN':
                     filtered_text.append(lr.lemmatize(w, pos='v'))
                 elif p[1] == 'JJ' or p[1] == 'JJR' or p[1] == 'JJS' or p[1] == 'RBR' or p[1] == 'RBS':
@@ -115,10 +115,12 @@ def animation_view(request):
             if not f:
                 for c in w:
                     filtered_text.append(c)
+               
             # otherwise animation of word
             else:
                 filtered_text.append(w)
         words = filtered_text
+        print(words)
 
         return render(request, 'app1/animation.html', {'words': words, 'text': english_text})
     else:

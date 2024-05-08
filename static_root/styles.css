@@ -1,0 +1,45 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+.input-section, .video-section {
+    margin-bottom: 20px;
+}
+
+.mic-button {
+    border: none;
+    background-color: transparent;
+    padding: 0;
+}
+
+.mic-button img {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.form-control-lg {
+    border-radius: 10px;
+}
+
+.btn-lg {
+    font-size: 18px; 
+    padding: 10px 25px;
+}
+
+#keyword-list {
+    list-style: none;
+    padding: 0;
+    display: flex; /* Make keywords display in a row */
+    flex-wrap: wrap; /* Allow them to wrap if needed */
+}
+
+#keyword-list li {
+    background-color: #e0e0e0;
+    padding: 5px 10px;
+    margin: 5px;
+    border-radius: 5px;
+}
